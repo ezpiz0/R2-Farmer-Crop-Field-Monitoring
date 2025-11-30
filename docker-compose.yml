@@ -1,0 +1,60 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: agrosky-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - backend-results:/app/results
+    environment:
+      - SENTINEL_CLIENT_ID=e6753813-f4e6-41dd-887f-1c0a78c8ce88
+      - SENTINEL_CLIENT_SECRET=QZSOjOPB0h2kaP4kCK5MeSDW1DpKfaKg
+      - SENTINEL_INSTANCE_ID=
+      - GEMINI_API_KEY=AIzaSyBXimThiz3TYzXSSFFCPftSzxQA1-X3WgU
+      - GEMINI_MODEL=gemini-2.0-flash-exp
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+    networks:
+      - agrosky-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: agrosky-frontend
+    ports:
+      - "3000:80"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    environment:
+      - VITE_API_URL=http://localhost:8000
+    networks:
+      - agrosky-network
+
+  nginx-proxy:
+    image: nginx:alpine
+    container_name: agrosky-nginx-proxy
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx-proxy.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - backend
+      - frontend
+    networks:
+      - agrosky-network
+
+volumes:
+  backend-results:
+
+networks:
+  agrosky-network:
+    driver: bridge
+
+
+

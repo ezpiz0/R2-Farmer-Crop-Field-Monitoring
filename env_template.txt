@@ -1,0 +1,38 @@
+# ============================================================
+# ШАБЛОН ДЛЯ .env ФАЙЛА
+# ============================================================
+# Сохраните этот файл как ".env" в корне проекта
+# (рядом с docker-compose.yml)
+# ============================================================
+
+# Sentinel Hub API Credentials
+SENTINEL_CLIENT_ID=
+SENTINEL_CLIENT_SECRET=
+SENTINEL_INSTANCE_ID=
+
+# Google Gemini AI API Key (for AI Agronomist feature)
+GEMINI_API_KEY=
+
+# Google Gemini Model (optional, defaults to gemini-1.5-pro)
+# Supported: gemini-1.5-pro, gemini-2.0-flash-exp, gemini-1.5-flash
+GEMINI_MODEL=gemini-1.5-pro
+
+# ============================================================
+# ИНСТРУКЦИЯ:
+# ============================================================
+# 1. Получите Sentinel Hub ключи на https://apps.sentinel-hub.com/dashboard/
+# 2. Получите Google Gemini API ключ на https://makersuite.google.com/app/apikey
+# 3. Замените пустые значения на ваши ключи (без кавычек)
+# 4. Сохраните этот файл как .env
+# 5. Перезапустите Docker: docker compose down && docker compose up
+# ============================================================
+
+# Пример заполнения:
+# SENTINEL_CLIENT_ID=12345678-abcd-1234-abcd-123456789abc
+# SENTINEL_CLIENT_SECRET=AbCdEfGh1234567890
+# SENTINEL_INSTANCE_ID=your-instance-id
+# GEMINI_API_KEY=AIzaSyABC123def456GHI789jkl...
+
+# Если оставить Sentinel Hub пустым - проект будет работать в MOCK режиме
+# с синтетическими данными. AI Агроном требует обязательно установленный GEMINI_API_KEY.
+
