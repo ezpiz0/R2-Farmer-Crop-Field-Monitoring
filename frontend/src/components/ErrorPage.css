@@ -1,0 +1,602 @@
+/* Error Page Container */
+.error-page {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #87CEEB 0%, #E0F6FF 50%, #D2B48C 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 40px 20px;
+}
+
+/* Animated Clouds */
+.error-clouds {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.cloud {
+  position: absolute;
+  background: white;
+  border-radius: 100px;
+  opacity: 0.8;
+}
+
+.cloud::before,
+.cloud::after {
+  content: '';
+  position: absolute;
+  background: white;
+  border-radius: 100px;
+}
+
+.cloud-1 {
+  width: 100px;
+  height: 40px;
+  top: 10%;
+  left: -100px;
+  animation: float-cloud 30s linear infinite;
+}
+
+.cloud-1::before {
+  width: 50px;
+  height: 50px;
+  top: -25px;
+  left: 10px;
+}
+
+.cloud-1::after {
+  width: 60px;
+  height: 40px;
+  top: -15px;
+  right: 10px;
+}
+
+.cloud-2 {
+  width: 120px;
+  height: 50px;
+  top: 20%;
+  left: -150px;
+  animation: float-cloud 40s linear infinite 5s;
+}
+
+.cloud-2::before {
+  width: 60px;
+  height: 60px;
+  top: -30px;
+  left: 20px;
+}
+
+.cloud-2::after {
+  width: 70px;
+  height: 50px;
+  top: -20px;
+  right: 15px;
+}
+
+.cloud-3 {
+  width: 80px;
+  height: 35px;
+  top: 30%;
+  left: -80px;
+  animation: float-cloud 35s linear infinite 10s;
+}
+
+.cloud-3::before {
+  width: 45px;
+  height: 45px;
+  top: -20px;
+  left: 12px;
+}
+
+.cloud-3::after {
+  width: 50px;
+  height: 35px;
+  top: -12px;
+  right: 12px;
+}
+
+@keyframes float-cloud {
+  0% {
+    left: -200px;
+  }
+  100% {
+    left: 110%;
+  }
+}
+
+/* Error Content */
+.error-content {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  animation: fadeInUp 0.8s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Farmer Container */
+.farmer-container {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 40px;
+}
+
+/* Farmer */
+.farmer {
+  position: relative;
+  animation: cry 2s ease-in-out infinite;
+}
+
+@keyframes cry {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Hat */
+.hat {
+  position: relative;
+  margin: 0 auto;
+  width: 120px;
+}
+
+.hat-top {
+  width: 80px;
+  height: 60px;
+  background: #D4A574;
+  border-radius: 40px 40px 0 0;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.hat-brim {
+  width: 120px;
+  height: 12px;
+  background: #C89B5A;
+  border-radius: 60px;
+  margin-top: -5px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Head */
+.farmer-head {
+  width: 100px;
+  height: 100px;
+  background: #FDBCB4;
+  border-radius: 50%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 3;
+}
+
+/* Tears */
+.tear {
+  position: absolute;
+  width: 8px;
+  height: 12px;
+  background: #4FC3F7;
+  border-radius: 50% 0 50% 50%;
+  animation: fall-tear 1.5s ease-in infinite;
+}
+
+.tear-left {
+  left: 20px;
+  top: 45px;
+  animation-delay: 0s;
+}
+
+.tear-right {
+  right: 20px;
+  top: 45px;
+  animation-delay: 0.3s;
+}
+
+@keyframes fall-tear {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+}
+
+/* Eyes */
+.eyes {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.eye {
+  width: 20px;
+  height: 25px;
+  background: white;
+  border-radius: 50% 50% 0 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.pupil {
+  width: 12px;
+  height: 12px;
+  background: #333;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 2px;
+  left: 4px;
+  animation: blink 3s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 90%, 100% {
+    transform: scaleY(1);
+  }
+  95% {
+    transform: scaleY(0.1);
+  }
+}
+
+/* Mouth */
+.mouth {
+  width: 40px;
+  height: 30px;
+  border: 3px solid #8B4513;
+  border-radius: 0 0 50px 50px;
+  border-top: none;
+  margin: 15px auto 0;
+  animation: sad-mouth 2s ease-in-out infinite;
+}
+
+@keyframes sad-mouth {
+  0%, 100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(1.2);
+  }
+}
+
+/* Mustache */
+.mustache {
+  width: 60px;
+  height: 20px;
+  background: #8B4513;
+  border-radius: 0 0 50px 50px;
+  margin: -10px auto 0;
+  position: relative;
+}
+
+.mustache::before,
+.mustache::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 15px;
+  background: #8B4513;
+  border-radius: 50%;
+  top: 5px;
+}
+
+.mustache::before {
+  left: -20px;
+  transform: rotate(-20deg);
+}
+
+.mustache::after {
+  right: -20px;
+  transform: rotate(20deg);
+}
+
+/* Body */
+.farmer-body {
+  width: 100px;
+  height: 80px;
+  background: #FF6B6B;
+  border-radius: 0 0 20px 20px;
+  margin: -10px auto 0;
+  position: relative;
+}
+
+.overalls {
+  position: absolute;
+  width: 90px;
+  height: 70px;
+  background: #4A90E2;
+  border-radius: 0 0 15px 15px;
+  bottom: 0;
+  left: 5px;
+}
+
+.strap {
+  position: absolute;
+  width: 12px;
+  height: 50px;
+  background: #4A90E2;
+  border-radius: 6px;
+  top: -20px;
+}
+
+.strap-left {
+  left: 15px;
+}
+
+.strap-right {
+  right: 15px;
+}
+
+.pocket {
+  position: absolute;
+  width: 30px;
+  height: 25px;
+  background: #3A7BC8;
+  border-radius: 0 0 8px 8px;
+  bottom: 15px;
+  left: 30px;
+}
+
+/* Arms */
+.arm {
+  position: absolute;
+  width: 20px;
+  height: 60px;
+  background: #FDBCB4;
+  border-radius: 10px;
+  top: 150px;
+}
+
+.arm-left {
+  left: 50%;
+  margin-left: -90px;
+  transform: rotate(45deg);
+}
+
+.arm-right {
+  left: 50%;
+  margin-left: 70px;
+  transform: rotate(-45deg);
+}
+
+/* Dead Plant */
+.dead-plant {
+  position: absolute;
+  right: -60px;
+  bottom: -20px;
+  animation: wilt 3s ease-in-out infinite;
+}
+
+@keyframes wilt {
+  0%, 100% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(-5deg);
+  }
+}
+
+.plant-stem {
+  width: 4px;
+  height: 50px;
+  background: #8B7355;
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+.plant-leaf {
+  position: absolute;
+  width: 20px;
+  height: 12px;
+  background: #9E9E9E;
+  border-radius: 50%;
+}
+
+.plant-leaf-1 {
+  top: 15px;
+  left: -15px;
+  transform: rotate(-45deg);
+}
+
+.plant-leaf-2 {
+  top: 25px;
+  right: -15px;
+  transform: rotate(45deg);
+}
+
+/* Error Code Display */
+.error-code-display {
+  margin: 40px 0 30px;
+}
+
+.error-number {
+  font-size: 120px;
+  font-weight: 900;
+  color: #8B4513;
+  text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+  font-family: 'Inter', sans-serif;
+  animation: pulse-error 2s ease-in-out infinite;
+}
+
+@keyframes pulse-error {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Error Text */
+.error-text h1 {
+  font-size: 36px;
+  color: #2C3E50;
+  margin: 20px 0;
+  font-weight: 700;
+}
+
+.error-description {
+  font-size: 20px;
+  color: #546E7A;
+  margin: 15px 0;
+}
+
+.error-tip {
+  font-size: 16px;
+  color: #78909C;
+  margin: 20px 0;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+  border-left: 4px solid #FFC107;
+}
+
+/* Action Buttons */
+.error-actions {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.btn-large {
+  padding: 16px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  min-width: 200px;
+}
+
+/* Field Decoration */
+.field-decoration {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+}
+
+.wheat {
+  position: absolute;
+  font-size: 40px;
+  animation: sway 3s ease-in-out infinite;
+}
+
+.wheat-1 {
+  left: 10%;
+  bottom: 20px;
+  animation-delay: 0s;
+}
+
+.wheat-2 {
+  left: 30%;
+  bottom: 30px;
+  animation-delay: 0.5s;
+}
+
+.wheat-3 {
+  right: 20%;
+  bottom: 25px;
+  animation-delay: 1s;
+}
+
+@keyframes sway {
+  0%, 100% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(3deg);
+  }
+  75% {
+    transform: rotate(-3deg);
+  }
+}
+
+.tractor {
+  position: absolute;
+  right: 5%;
+  bottom: 20px;
+  font-size: 50px;
+  animation: move-tractor 10s linear infinite;
+}
+
+@keyframes move-tractor {
+  0% {
+    right: -10%;
+  }
+  100% {
+    right: 110%;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .error-number {
+    font-size: 80px;
+  }
+
+  .error-text h1 {
+    font-size: 28px;
+  }
+
+  .error-description {
+    font-size: 18px;
+  }
+
+  .farmer {
+    transform: scale(0.8);
+  }
+
+  .error-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn-large {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .dead-plant {
+    display: none;
+  }
+}
+
+/* Additional animations on hover */
+.farmer:hover {
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+

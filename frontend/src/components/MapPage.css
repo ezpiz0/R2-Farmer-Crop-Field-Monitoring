@@ -1,0 +1,134 @@
+.map-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.map-page {
+  display: flex;
+  flex: 1;
+  height: calc(100vh - 72px); /* 72px это высота header */
+  overflow: hidden;
+  position: relative;
+}
+
+/* Оверлей при перетаскивании */
+.map-page::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0);
+  pointer-events: none;
+  transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 999;
+}
+
+.map-page.resizing::after {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Контейнер боковой панели с ресайзером */
+.sidebar-container {
+  position: relative;
+  flex-shrink: 0;
+  height: 100%;
+  transition: none; /* Убираем transition для мгновенного отклика при перетаскивании */
+}
+
+/* Разделитель для изменения размера */
+.sidebar-resizer {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 8px; /* Увеличена активная область */
+  cursor: ew-resize;
+  background: transparent;
+  z-index: 1000;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Плавная transition */
+}
+
+.sidebar-resizer:hover {
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.2), transparent);
+}
+
+.sidebar-resizer.resizing {
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.4), transparent);
+}
+
+/* Визуальная подсказка при наведении */
+.sidebar-resizer::before {
+  content: '';
+  position: absolute;
+  right: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 40px;
+  background: rgba(156, 163, 175, 0.3);
+  border-radius: 3px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Более плавная анимация */
+  opacity: 0;
+}
+
+.sidebar-resizer:hover::before {
+  opacity: 1;
+  background: rgba(59, 130, 246, 0.6);
+  height: 50px;
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.3);
+}
+
+.sidebar-resizer.resizing::before {
+  opacity: 1;
+  background: rgba(59, 130, 246, 0.9);
+  height: 70px;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+  width: 4px;
+}
+
+/* Dark theme */
+[data-theme="dark"] .map-page.resizing::after {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="dark"] .sidebar-resizer:hover {
+  background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.2), transparent);
+}
+
+[data-theme="dark"] .sidebar-resizer.resizing {
+  background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.4), transparent);
+}
+
+[data-theme="dark"] .sidebar-resizer::before {
+  background: rgba(107, 114, 128, 0.4);
+}
+
+[data-theme="dark"] .sidebar-resizer:hover::before {
+  background: rgba(96, 165, 250, 0.7);
+  box-shadow: 0 0 15px rgba(96, 165, 250, 0.4);
+}
+
+[data-theme="dark"] .sidebar-resizer.resizing::before {
+  background: rgba(96, 165, 250, 1);
+  box-shadow: 0 0 25px rgba(96, 165, 250, 0.6);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .map-page {
+    flex-direction: column;
+  }
+  
+  .sidebar-container {
+    width: 100% !important;
+  }
+  
+  .sidebar-resizer {
+    display: none;
+  }
+}
+

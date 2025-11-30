@@ -1,0 +1,21 @@
+/* Styles for NDVI ImageOverlay */
+.ndvi-overlay {
+  pointer-events: none !important;
+  image-rendering: pixelated !important;
+  image-rendering: -moz-crisp-edges !important;
+  image-rendering: crisp-edges !important;
+  z-index: 10000 !important;
+  opacity: 1 !important;
+}
+
+/* Ensure NDVI overlay is above all other layers */
+.leaflet-image-layer.ndvi-overlay {
+  z-index: 10000 !important;
+  opacity: 1 !important;
+}
+
+/* Hide drawn geometry after analysis if needed */
+.leaflet-draw-toolbar {
+  z-index: 500 !important;
+}
+

@@ -1,0 +1,143 @@
+.zone-legend {
+  background: white;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  min-width: 250px;
+  max-width: 300px;
+}
+
+.legend-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #ecf0f1;
+}
+
+.legend-header h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.legend-subtitle {
+  font-size: 0.85rem;
+  color: #7f8c8d;
+  background: #ecf0f1;
+  padding: 4px 8px;
+  border-radius: 12px;
+}
+
+.legend-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.legend-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.legend-color-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.legend-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.legend-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.legend-zone-id {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 0.9rem;
+}
+
+.legend-zone-label {
+  font-size: 0.85rem;
+  color: #7f8c8d;
+  font-style: italic;
+}
+
+.legend-stats {
+  margin-left: 30px;
+  padding: 4px 8px;
+  background: #f8f9fa;
+  border-radius: 4px;
+}
+
+.legend-ndvi {
+  font-size: 0.8rem;
+  color: #27ae60;
+  font-weight: 600;
+}
+
+.legend-footer {
+  padding-top: 12px;
+  border-top: 1px solid #ecf0f1;
+}
+
+.legend-gradient {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.gradient-bar {
+  height: 12px;
+  border-radius: 6px;
+  background: linear-gradient(to right, #d32f2f, #f57c00, #fbc02d, #7cb342, #388e3c);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.gradient-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #7f8c8d;
+}
+
+/* Tooltip style */
+.zone-tooltip {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 2px solid #27ae60 !important;
+  border-radius: 6px !important;
+  padding: 8px 12px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+  font-size: 0.9rem !important;
+}
+
+.zone-tooltip::before {
+  border-top-color: #27ae60 !important;
+}
+
+/* Popup style */
+.zone-popup {
+  min-width: 200px;
+  font-family: inherit;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .zone-legend {
+    max-width: 100%;
+  }
+}
+

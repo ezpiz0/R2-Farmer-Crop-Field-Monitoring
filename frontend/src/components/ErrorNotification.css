@@ -1,0 +1,129 @@
+/* Error Notification */
+.error-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  min-width: 350px;
+  max-width: 500px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  z-index: 10001;
+  animation: slideInRight 0.3s ease-out;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.error-notification.error {
+  border-left: 5px solid #FF6B6B;
+}
+
+.error-notification.warning {
+  border-left: 5px solid #FFC107;
+}
+
+.error-notification.info {
+  border-left: 5px solid #2196F3;
+}
+
+.error-notification-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 20px;
+}
+
+.error-notification-icon {
+  font-size: 32px;
+  animation: bounce 1s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.error-notification-message {
+  flex: 1;
+}
+
+.error-notification-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2C3E50;
+  margin-bottom: 5px;
+}
+
+.error-notification-text {
+  font-size: 14px;
+  color: #546E7A;
+  line-height: 1.5;
+}
+
+.error-notification-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #78909C;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.error-notification-close:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: #2C3E50;
+}
+
+.error-notification-progress {
+  height: 3px;
+  background: linear-gradient(to right, #FF6B6B, #FF8E8E);
+  animation: progress 5s linear;
+}
+
+.error-notification.warning .error-notification-progress {
+  background: linear-gradient(to right, #FFC107, #FFD54F);
+}
+
+.error-notification.info .error-notification-progress {
+  background: linear-gradient(to right, #2196F3, #64B5F6);
+}
+
+@keyframes progress {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .error-notification {
+    left: 20px;
+    right: 20px;
+    min-width: unset;
+  }
+}
+

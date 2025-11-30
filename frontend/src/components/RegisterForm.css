@@ -1,0 +1,123 @@
+.register-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background: linear-gradient(135deg, #1e4620 0%, #2d6930 50%, #4a9d4f 100%);
+  position: relative;
+}
+
+.register-form-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="rgba(255,255,255,0.05)"/></svg>') repeat;
+  pointer-events: none;
+}
+
+.register-form-card {
+  background: var(--bg-primary);
+  border-radius: 16px;
+  box-shadow: var(--shadow-lg);
+  padding: 48px;
+  width: 100%;
+  max-width: 440px;
+  position: relative;
+  z-index: 1;
+}
+
+.register-form-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.register-form-header h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 8px 0;
+}
+
+.register-form-header p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-hint {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  margin-top: -4px;
+}
+
+.register-button {
+  padding: 14px 24px;
+  background: var(--primary-green);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.register-button:hover:not(:disabled) {
+  background: var(--primary-green-light);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.register-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.register-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.register-form-footer {
+  margin-top: 24px;
+  text-align: center;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-light);
+}
+
+.register-form-footer p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Dark theme support */
+[data-theme="dark"] .register-form-container {
+  background: linear-gradient(135deg, #0d1f0e 0%, #1a3a1c 50%, #2d5930 100%);
+}
+
+@media (max-width: 768px) {
+  .register-form-card {
+    padding: 32px 24px;
+  }
+
+  .register-form-header h2 {
+    font-size: 24px;
+  }
+}
+

@@ -1,0 +1,96 @@
+/* Theme Toggle Button - New Design */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  transition: all 0.3s ease;
+  font-family: inherit;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
+.theme-toggle:active {
+  transform: translateY(0);
+}
+
+.toggle-track {
+  width: 50px;
+  height: 26px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.3);
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: white;
+  position: absolute;
+  top: 2px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-thumb.light {
+  left: 2px;
+}
+
+.toggle-thumb.dark {
+  left: 26px;
+}
+
+.theme-label {
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+/* Dark theme variant */
+[data-theme="dark"] .theme-toggle {
+  background: linear-gradient(135deg, #1e3a8a 0%, #7c3aed 100%);
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4);
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .theme-toggle {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+  
+  .toggle-track {
+    width: 44px;
+    height: 22px;
+  }
+  
+  .toggle-thumb {
+    width: 18px;
+    height: 18px;
+    font-size: 12px;
+  }
+  
+  .toggle-thumb.dark {
+    left: 22px;
+  }
+}
